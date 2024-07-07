@@ -190,6 +190,7 @@ font-weight: 800;
 {
     font-size: 30px;
     line-height: 35px;
+    margin-top: 40px;
 }
 .card-carosuel-tittle {
     font-size: 35px;
@@ -200,5 +201,7 @@ font-weight: 800;
     justify-content: flex-start;
     margin-bottom: 15px;
 }
-
+.text2{
+    font-size: 15px;
+}
 }
