@@ -1,0 +1,204 @@
+/* --------------------Header------------- */
+#collapsibleNavbar
+{
+    justify-content: end;
+}
+.navbar-brand>img
+{
+ height: 50px;
+}
+.Head{
+    background-color: transparent;
+    color: black;
+}
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* ------------Header-Carosule----------- */
+.text1
+{
+font-size:50px;
+color: #fff;
+text-shadow: 2px 1px 2px #033946;
+line-height: 57px;
+font-weight: 800;
+}
+.text1:hover
+{
+    color: #00ba74;
+}
+.text2
+{
+    font-size: 16px;
+    font-weight: 400;
+}
+@media screen and (orientation: landscape) {
+    .carousel img {
+    height: 520px;;
+    }
+  }
+
+/* ----------Three-Card-portion -----------*/
+.Card-one-tittle
+{
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 26px;
+}
+.card-one-tittle2
+{
+    font-weight: 600;
+    color: #005aab;
+    text-transform: uppercase;
+    font-size: 19px;
+}
+.card{
+    box-shadow: 0px 3px 15px 0px rgba(0, 0, 0, 0.06);
+    border-radius: 0;
+    border: 2px solid #0061773d;
+}
+#Card_3:hover
+{
+   transition: all 0.4s ease-in;
+   background-color: #005aab;
+   color: white;
+}
+#Card_3>.card-one-tittle2:hover
+{
+    color: #fff;
+}
+
+.col-md-4>.card>.card-img-top
+{
+    border: 4px solid #ffffff;
+    border-radius: 50%;
+    width: 50% !important;
+    margin: auto !important;
+} 
+
+
+
+/* ------------After-Three-card-Carousel-------- */
+.carousel-main-div
+{
+    border: 1px solid  #005aab;
+    padding: 12px;
+}
+.carousel-main-div:hover
+{
+    background:  #005aab;
+    transition: all 0.4s ease-in;
+}
+.after-card-carousel>img
+{
+    border: 1px solid white;
+    border-radius: 2px;
+}
+
+.before-footer-banner
+{
+    height: 500px;
+    object-fit: cover;
+    width: 100%;
+}
+.card-carosuel-tittle{
+    font-size: 50px;
+    color: #fff;
+    text-shadow: 2px 1px 2px #033946;
+    line-height: 57px;
+    font-weight: 800;
+}
+
+
+.after-card-carousel-heading
+{
+    text-transform: capitalize;
+    text-align: center;
+   font-weight: 700;
+   font-size: 30px;
+}
+/* --------After-banner-Text-card--------- */
+
+.After-banner-Text-card
+{
+    background-color: #005aab;
+    color:#fff;
+}
+.text
+{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+
+}
+.text>button
+{
+    padding: 15px 30px 15px 30px;
+    background: #fff;
+    border: 5px solid #337bbc;
+    border-radius: 50px;
+    font-weight: 500;
+}
+.text_One
+{
+    font-size: 24px;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+.footer
+{
+    background-color: #0d0d0d;
+    color: #627b9a;
+}
+
+.footer>dt
+{
+    color: #fff;
+}
+.col>dl
+{
+    margin: 6px 0px 0px 20px;
+    line-height: 30px;
+}
+.PlayStore-btn
+{
+    width: 185px;
+    padding: 10px;
+}
+.fa-brands
+{
+    color: green;
+}
+.PlayStore-btn
+{
+    background-color: transparent;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 10px;
+    border: 1px solid #366a9a;
+    margin-bottom: 15px;
+}
+
+
+/*------------------ Media-Query ----------*/
+
+
+@media only screen and (max-width: 450px)
+{
+.text1
+{
+    font-size: 30px;
+    line-height: 35px;
+}
+.card-carosuel-tittle {
+    font-size: 35px;
+}
+.text
+{
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 15px;
+}
+
+}
