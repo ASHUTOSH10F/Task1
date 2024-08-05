@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Send Email</title>
+    <script>
+        function sendEmail() {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "send_email.php", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    alert(xhr.responseText);
+                }
+            };
+
+            var to = document.getElementById('to').value;
+            var subject = document.getElementById('subject').value;
+            var message = document.getElementById('message').value;
+
+            var emailData = "to=" + encodeURIComponent(to) + 
+                            "&subject=" + encodeURIComponent(subject) + 
+                            "&message=" + encodeURIComponent(message);
+
+            xhr.send(emailData);
+        }
+    </script>
+</head>
+<body>
+    <h1>Send Email</h1>
+    <form onsubmit="event.preventDefault(); sendEmail();">
+        <label for="to">To:</label>
+        <input type="email" id="to" name="to" required><br>
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" name="subject" required><br>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea><br>
+        <button type="submit">Send Email</button>
+    </form>
+</body>
+</html>
+
+<?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'vendor/autoload.php';
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $to = $_POST['to'];
+    $subject = $_POST['subject'];
+    $message = $_POST['message'];
+
+    $mail = new PHPMailer(true);
+
+    try {
+        //Server settings
+        $mail->SMTPDebug = 0; // Enable verbose debug output (use 0 for no output)
+        $mail->isSMTP(); // Set mailer to use SMTP
+        $mail->Host = 'smtp.example.com'; // Specify main and backup SMTP servers
+        $mail->SMTPAuth = true; // Enable SMTP authentication
+        $mail->Username = 'your-email@example.com'; // SMTP username
+        $mail->Password = 'your-email-password'; // SMTP password
+        $mail->SMTPSecure = 'tls'; // Enable TLS encryption, ssl also accepted
+        $mail->Port = 587; // TCP port to connect to
+
+        //Recipients
+        $mail->setFrom('your-email@example.com', 'Your Name');
+        $mail->addAddress($to); // Add a recipient
+
+        // Content
+        $mail->isHTML(true); // Set email format to HTML
+        $mail->Subject = $subject;
+        $mail->Body    = $message;
+        $mail->AltBody = strip_tags($message); // Plain text version for non-HTML mail clients
+
+        $mail->send();
+        echo 'Email sent successfully!';
+    } catch (Exception $e) {
+        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+    }
+}
+?>
